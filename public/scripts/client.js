@@ -1,10 +1,9 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('Controlla', function(){
+myApp.controller('Controlla', function($http){
   console.log('NG');
 
   var vm = this;
-  vm.items = [];
 
   vm.addItems = function(){
     console.log('in addItems');
@@ -13,9 +12,27 @@ myApp.controller('Controlla', function(){
       food: vm.foodIn
     };
 
-    vm.items.push(newItem);
+    console.log(newItem);
+    $http({
+      method: 'POST',
+      url: '/test',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      data: "message=" + vm.songIn + ',' + vm.foodIn
+    }).then(function success(response){
+      console.log(response.data);
+    });
+
+    $http({
+      method: 'GET',
+      url: '/test'
+    }).then(function mySuccess(response){
+      vm.items = response.data;
+      console.log(vm.items);
+    });
+
 
     vm.songIn = '';
     vm.foodIn = '';
   };
+
 });

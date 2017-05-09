@@ -14,6 +14,7 @@
       <input type="text" placeholder="song" value="" ng-model="c.songIn">
       <input type="text" placeholder="food" value="" ng-model="c.foodIn">
       <button type="button" name="button" ng-click="c.addItems()">Add Items</button>
+
       <div ng-repeat="item in c.items">
          <h3>{{item.song}}</h3>
          <ul>

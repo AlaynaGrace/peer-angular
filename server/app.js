@@ -13,3 +13,15 @@ app.use('/',index);
 app.listen(port, function(){
   console.log('server up on', port);
 });
+
+var testArr = [{song:'asdfa', food:'asdfas'}];
+
+app.get('/test',function(req,res){
+  res.send(testArr);
+});
+
+app.post('/test', function(req,res){
+  console.log(req.body);
+  testArr.push(req.body);
+  res.send(201);
+});

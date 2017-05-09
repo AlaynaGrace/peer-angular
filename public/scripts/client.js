@@ -16,11 +16,12 @@ myApp.controller('Controlla', function($http){
     $http({
       method: 'POST',
       url: '/test',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      data: "message=" + vm.songIn + ',' + vm.foodIn
+      data: newItem,
+      cache: false
     }).then(function success(response){
       console.log(response.data);
     });
+
 
     $http({
       method: 'GET',

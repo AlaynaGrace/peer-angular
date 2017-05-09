@@ -20,6 +20,8 @@ myApp.controller('Controlla', function($http){
       cache: false
     }).then(function success(response){
       console.log(response.data);
+    }, function fail(response){
+      console.log(response);
     });
 
 
@@ -29,6 +31,8 @@ myApp.controller('Controlla', function($http){
     }).then(function mySuccess(response){
       vm.items = response.data;
       console.log(vm.items);
+    },function fail(response){
+      console.log(response);
     });
 
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Peer Angular</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body ng-app="myApp">
+    <h1>Peer Angular</h1>
+    <div ng-controller="Controlla as c">
+      <input type="text" placeholder="song" value="" ng-model="c.songIn">
+      <input type="text" placeholder="food" value="" ng-model="c.foodIn">
+      <button type="button" name="button" ng-click="c.addItems()">Add Items</button>
+      <div ng-repeat="item in c.items">
+         <h3>{{item.song}}</h3>
+         <ul>
+           <li>{{item.food}}</li>
+         </ul>
+      </div>
+    </div>
+  </body>
+</html>
